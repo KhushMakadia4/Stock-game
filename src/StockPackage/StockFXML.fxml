@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="homeScreen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="892.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="StockPackage.StockGUI">
+   <children>
+      <ImageView fitHeight="670.0" fitWidth="898.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/homeBack.jpg" />
+         </image>
+      </ImageView>
+      <LineChart fx:id="moneyChart" layoutX="14.0" layoutY="148.0" prefHeight="385.0" prefWidth="504.0">
+        <xAxis>
+          <NumberAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <Label fx:id="playerNameLbl" layoutX="547.0" layoutY="136.0" prefHeight="41.0" prefWidth="312.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerMoneyLbl" layoutX="547.0" layoutY="216.0" prefHeight="41.0" prefWidth="209.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="advTime" layoutX="476.0" layoutY="20.0" mnemonicParsing="false" onAction="#advTime" prefHeight="31.0" prefWidth="98.0" text="Next Day">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="14.0" />
+         </font>
+      </Button>
+      <ToolBar fx:id="toolBar" layoutY="72.0" prefHeight="42.0" prefWidth="892.0">
+        <items>
+          <Button mnemonicParsing="false" onAction="#showPortScreen" prefHeight="31.0" prefWidth="112.0" text="Home">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#showBuyScreen" prefHeight="31.0" prefWidth="112.0" text="Buy">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="126.0" layoutY="10.0" mnemonicParsing="false" onAction="#showSellScreen" prefHeight="31.0" prefWidth="112.0" text="Sell">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="242.0" layoutY="10.0" mnemonicParsing="false" onAction="#showNewsScreen" prefHeight="31.0" prefWidth="112.0" text="News">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="358.0" layoutY="10.0" mnemonicParsing="false" onAction="#showAddPlayer" prefHeight="31.0" prefWidth="112.0" text="Add player">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="14.0" />
+               </font>
+            </Button>
+            <Label prefHeight="32.0" prefWidth="118.0" text="   Players:">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <ListView fx:id="playersLst" onMouseClicked="#dispShares" prefHeight="31.0" prefWidth="162.0" />
+        </items>
+      </ToolBar>
+      <ImageView fitHeight="69.0" fitWidth="683.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/StockGameLogo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="moneyLbl" layoutX="722.0" layoutY="14.0" prefHeight="36.0" prefWidth="162.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="dateLbl" layoutX="574.0" layoutY="17.0" prefHeight="36.0" prefWidth="146.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="addplayer" layoutX="-2.0" layoutY="-4.0" prefHeight="636.0" prefWidth="892.0" style="-fx-background-color: skyblue;">
+         <children>
+            <Label layoutX="191.0" layoutY="230.0" prefHeight="41.0" prefWidth="66.0" text="NAME:" textFill="#a42e2e">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="167.0" fitWidth="747.0" layoutX="73.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/StockGameLogo.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="nameTF" layoutX="254.0" layoutY="230.0" prefHeight="41.0" prefWidth="357.0" />
+            <Label layoutX="127.0" layoutY="326.0" prefHeight="41.0" prefWidth="216.0" text="STARTING BALANCE:">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="startBalTF" layoutX="342.0" layoutY="326.0" prefHeight="41.0" prefWidth="181.0" />
+            <Button fx:id="addPersonBtn" layoutX="342.0" layoutY="401.0" mnemonicParsing="false" onAction="#addPerson" prefHeight="76.0" prefWidth="181.0" text="ADD">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="48.0" />
+               </font>
+            </Button>
+            <Button layoutX="368.0" layoutY="527.0" mnemonicParsing="false" onAction="#showInstruc" prefHeight="41.0" prefWidth="130.0" text="Instructions">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="664.0" layoutY="440.0" prefHeight="41.0" prefWidth="122.0" text="FUNDED BY:">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="79.0" fitWidth="228.0" layoutX="611.0" layoutY="481.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/QuandlLogo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="cancelBtn" layoutX="377.0" layoutY="585.0" mnemonicParsing="false" onAction="#cancelAddPlayer" prefHeight="36.0" prefWidth="112.0" text="Cancel">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="18.0" />
+               </font>
+            </Button>
+            <TextArea fx:id="instrucTxtArea" disable="true" layoutX="12.0" layoutY="373.0" prefHeight="257.0" prefWidth="318.0" wrapText="true" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="buyScreen" layoutY="114.0" prefHeight="516.0" prefWidth="892.0" style="-fx-background-color: lightgreen;" visible="false">
+         <children>
+            <Label layoutX="26.0" layoutY="14.0" prefHeight="32.0" prefWidth="78.0" text="BUY">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <ListView fx:id="allStocksLst" layoutX="26.0" layoutY="58.0" onMouseClicked="#showBuyCht" prefHeight="430.0" prefWidth="351.0" />
+            <LineChart fx:id="buystockChart" layoutX="377.0" layoutY="14.0" prefHeight="297.0" prefWidth="495.0">
+              <xAxis>
+                <NumberAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <Label fx:id="stockTickLbl" layoutX="381.0" layoutY="348.0" prefHeight="37.0" prefWidth="130.0">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="32.0" />
+               </font>
+            </Label>
+            <Label fx:id="buyCompLbl" layoutX="524.0" layoutY="351.0" prefHeight="41.0" prefWidth="201.0">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="buySMoneyLbl" layoutX="723.0" layoutY="342.0" prefHeight="50.0" prefWidth="162.0">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="buyStck" layoutX="706.0" layoutY="449.0" mnemonicParsing="false" onAction="#buyStock" prefHeight="31.0" prefWidth="98.0" text="Buy">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="buyTxtField" layoutX="381.0" layoutY="452.0" prefHeight="32.0" prefWidth="288.0" promptText="How many do you want to buy?" />
+            <Label fx:id="buyDividLbl" layoutX="381.0" layoutY="401.0" prefHeight="41.0" prefWidth="351.0">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font>
+            </Label>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </AnchorPane>
+      <AnchorPane fx:id="sellScreen" layoutX="-2.0" layoutY="116.0" prefHeight="510.0" prefWidth="892.0" style="-fx-background-color: yellow;" visible="false">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <Label layoutX="35.0" layoutY="14.0" prefHeight="32.0" prefWidth="78.0" text="SELL">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <LineChart fx:id="sellStockCht" layoutX="412.0" layoutY="14.0" prefHeight="297.0" prefWidth="466.0">
+              <xAxis>
+                <NumberAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <ListView fx:id="playerStocksLst" layoutX="13.0" layoutY="55.0" onMouseClicked="#showSellCht" prefHeight="430.0" prefWidth="405.0" />
+            <Label fx:id="sellTickLbl" layoutX="431.0" layoutY="335.0" prefHeight="32.0" prefWidth="66.0">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="sellCompLbl" layoutX="655.0" layoutY="335.0" prefHeight="32.0" prefWidth="239.0" wrapText="true">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="sellPriceatLbl" layoutX="514.0" layoutY="335.0" prefHeight="32.0" prefWidth="118.0">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <TextField fx:id="sellTxtField" layoutX="431.0" layoutY="460.0" prefHeight="25.0" prefWidth="216.0" promptText="How many stocks are you selling?" />
+            <Button layoutX="695.0" layoutY="457.0" mnemonicParsing="false" onAction="#sellStck" prefHeight="11.0" prefWidth="98.0" text="Sell">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="sellBoughtAtLbl" layoutX="439.0" layoutY="383.0" prefHeight="32.0" prefWidth="201.0">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="sellSharesLbl" layoutX="693.0" layoutY="383.0" prefHeight="32.0" prefWidth="201.0">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="sellDividLbl" layoutX="431.0" layoutY="415.0" prefHeight="32.0" prefWidth="304.0">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="newsScreen" layoutX="-3.0" layoutY="114.0" prefHeight="516.0" prefWidth="892.0" style="-fx-background-color: lightgray;" visible="false">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <children>
+            <Label layoutX="22.0" layoutY="22.0" prefHeight="32.0" prefWidth="85.0" text="NEWS ">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <ListView fx:id="newsListView" layoutX="34.0" layoutY="54.0" prefHeight="450.0" prefWidth="844.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
